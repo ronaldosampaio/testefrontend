@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "nome": "Orçamento"
+    },
+    {
+        "id": 2,
+        "nome": "Dúvida"
+    },
+    {
+        "id": 3,
+        "nome": "Elogio"
+    },
+    {
+        "id": 4,
+        "nome": "Reclamação"
+    }
+]

@@ -1,0 +1,58 @@
+<div class="row mensagens">
+    <h5 class="col s12">Mensagens</h5>
+
+    <div class="lista col s5 col m3">
+        <!--(click)="mostrarMensagemUnica(msgm.id)"
+            [routerLink]="['/dashboard-detalhe', msgm.id]"  
+            [routerLink]="['/dashboard-detalhe']"
+        -->
+        <ul class="collection"
+            *ngFor="let msgm of resultadoMensagens"
+            (click)="mostrarMensagemUnica(msgm.id)" >
+            <li class="collection-item active col s12">
+                <h6>Titulo:{{msgm.assunto}}</h6>
+                <span>Assunto: {{msgm.assunto}}</span><br>
+                <span>Hora: {{msgm.hora}}</span> 
+            </li>      
+        </ul>
+
+    </div>
+
+    <div class="row col s7 col m9">
+        <div class="">
+            <ul class="collection">
+                <li>
+                    <h6 class="col s12" >Titulo:   {{dashboardId.assunto}}</h6>
+                </li>
+                <li>
+                    <span class="col s12">Hora:   {{dashboardId.hora}}</span><br>
+                </li>
+                <li>
+                    <span class="col s12">Assunto:{{dashboardId.assunto}}</span><br>
+                </li>
+                <li>
+                    <p class="col s12">Mensagem:  {{dashboardId.mensagem}}</p>
+                </li>
+            </ul>
+        </div>  
+        
+        <button class="btn waves-effect waves-light right" 
+                type="submit"
+                (click)="excluirMensagem(dashboardId.id)">Excluir Mensagem</button>
+
+    </div>
+
+
+
+
+<!--
+     <app-dashboard-detalhe></app-dashboard-detalhe>
+     <router-outlet></router-outlet>
+-->   
+</div>
+
+
+
+  
+
+    
