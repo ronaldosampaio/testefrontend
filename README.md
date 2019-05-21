@@ -6,6 +6,14 @@ Para os input do cadastro foi instalado o materialize-css
 npm install materialize-css@next
 apenas instalar que já esta configurado para uso do mesmo
 
+# mensagem de envio
+npm install ngx-toastr --save
+npm install @angular/animations --save
+error: 'toast-error',
+info: 'toast-info',
+success: 'toast-success',
+warning: 'toast-warning'
+
 # json-server
 Cria uma api ficticio
 npm install -g json-server
