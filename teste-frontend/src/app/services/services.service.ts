@@ -15,17 +15,17 @@ export class ServicesService {
   public getUrlAssuntos(){
     return this.http.get(this.urlAssuntos);
   }
-
+  
+  public getIdMensagens(id:number){
+    return this.http.get(this.urlFictiocioMensagens +"/"+id);
+  }
+  
   public enviarMensagem(obj){
     return this.http.post(this.urlFictiocioMensagens, obj);
   }
 
   public getUrlFicticioMensagens(){
     return this.http.get(this.urlFictiocioMensagens);
-  }
-
-  public getIdMensagens(id:number){
-    return this.http.get(this.urlFictiocioMensagens +"/"+id);
   }
 
   public deleteIdMensagens(id:number){

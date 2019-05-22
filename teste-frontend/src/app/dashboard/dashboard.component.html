@@ -18,8 +18,8 @@
 
     </div>
 
-    <div class="row col s7 col m9">
-        <div class="">
+    <div class="row col s7 col m9" *ngIf="mostrarMensagemSelecionada" >
+    
             <ul class="collection">
                 <li>
                     <h6 class="col s12" >Titulo:   {{dashboardId.assunto}}</h6>
@@ -34,11 +34,12 @@
                     <p class="col s12">Mensagem:  {{dashboardId.mensagem}}</p>
                 </li>
             </ul>
-        </div>  
+         
         
         <button class="btn waves-effect waves-light right" 
                 type="submit"
-                (click)="excluirMensagem(dashboardId.id)">Excluir Mensagem</button>
+                (click)="excluirMensagem(dashboardId.id)">Excluir Mensagem
+        </button>
 
     </div>
 

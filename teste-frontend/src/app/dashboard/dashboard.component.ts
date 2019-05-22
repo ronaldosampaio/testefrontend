@@ -13,8 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 export class DashboardComponent implements OnInit {
   resultadoMensagens: any[]=[];
   dashboardId: any[]=[];
+  mostrarMensagemSelecionada: boolean=false;
  
-  //id: number;
   
   constructor(private service: ServicesService, 
               private router: Router,
@@ -22,32 +22,39 @@ export class DashboardComponent implements OnInit {
 
   getMensagens(){
     this.service.getUrlFicticioMensagens()
-        .subscribe((data:any)=>{
-        this.resultadoMensagens=data;
-        console.log("getMensagens -> ", this.resultadoMensagens);
+        .subscribe((res:any)=>{
+        this.resultadoMensagens=res;
+        console.log("Todas Mensagens -> ", this.resultadoMensagens);
     })
   }
 
-  mostrarMensagemUnica(id:number) {
-    this.router.navigate(['dashboard', id]) 
-    this.service.getIdMensagens(id)
-    .subscribe((data:any) =>{
-     this.dashboardId = data;
-     console.log("teste ->",this.dashboardId);
-   })
+  mostrarMensagemUnica(id: number) {
+      //this.router.navigate(['dashboard', id]) 
+      this.service.getIdMensagens(id)
+      .subscribe((res:any) =>{
+           this.dashboardId = res;
+           console.log("Mensagem selecionada ->",this.dashboardId);
+           ()=> this.getMensagens()
+
+      })
+      this.mostrarMensagemSelecionada=true;
  }
 
  excluirMensagem(id:number){
-  this.service.deleteIdMensagens(id)
-  .subscribe(
-       success => this.toastr.warning("Mensagem excluida com sucesso!"),
-       error => this.toastr.error("Erro ao excluir Mensagem!"),
-       ()=> this.getMensagens()
-  );
+     this.service.deleteIdMensagens(id)
+     .subscribe(
+         success => this.toastr.warning("Mensagem excluida com sucesso!"),
+         error => this.toastr.error("Erro ao excluir Mensagem!", error),
+         () => this.getMensagens(),         
+     );
+     this.mostrarMensagemSelecionada=false
+      
+      
 }
 
   ngOnInit() {
     this.getMensagens();
+    
   }
   
   
